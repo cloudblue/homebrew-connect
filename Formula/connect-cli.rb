@@ -4,7 +4,7 @@ class ConnectCli < Formula
   desc "CloudBlue Connect Command Line Interface"
   homepage "https://connect.cloudblue.com"
   url "https://files.pythonhosted.org/packages/75/26/800fc6da3e4dc8f5177c02745072b3173e3f89bddc3c4e54fe64558d89cc/connect-cli-22.18.tar.gz"
-  sha256 "d255f0e9096fe26150177c278a357f75ac72d205b6351bccabb80e1f243895c4"
+  sha256 "3b7c0776703055b3eb540e1a3f3f0a65626fc390c4f97bc794d582912b7f8e0e"
   license "Apache-2.0"
   revision 1
   head "https://github.com/cloudblue/connect-cli.git"
