@@ -16,6 +16,11 @@ class ConnectCli < Formula
   depends_on "gdk-pixbuf"
   depends_on "libffi"
 
+  resource "pip" do
+    url "https://files.pythonhosted.org/packages/b7/2d/ad02de84a4c9fd3b1958dc9fb72764de1aa2605a9d7e943837be6ad82337/pip-21.0.1.tar.gz"
+    sha256 "99bbde183ec5ec037318e774b0d8ae0a64352fe53b2c7fd630be1d07e94f41e5"
+  end
+
   resource "ansicolors" do
     url "https://files.pythonhosted.org/packages/76/31/7faed52088732704523c259e24c26ce6f2f33fbeff2ff59274560c27628e/ansicolors-1.1.8.zip"
     sha256 "99f94f5e3348a0bcd43c82e5fc4414013ccc19d70bd939ad71e0133ce9c372e0"
@@ -242,7 +247,10 @@ class ConnectCli < Formula
   end
 
   def install
-    virtualenv_install_with_resources :using => "python@3.8"
+    venv = virtualenv_create(libexec)
+    venv.pip_install resources
+    venv.pip_install 
+    virtualenv_install_with_resources
   end
 
   test do
