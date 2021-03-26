@@ -10,7 +10,7 @@ class ConnectCli < Formula
   head "https://github.com/cloudblue/connect-cli.git"
 
 
-  depends_on "python@3"
+  depends_on "python@3.8"
   depends_on "cairo"
   depends_on "pango"
   depends_on "gdk-pixbuf"
@@ -242,7 +242,7 @@ class ConnectCli < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    virtualenv_install_with_resources :using => "python@3.8"
   end
 
   test do
