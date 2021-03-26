@@ -1,4 +1,4 @@
-class ConnectCLI < Formula
+class ConnectCli < Formula
   include Language::Python::Virtualenv
 
   desc "CloudBlue Connect Command Line Interface"
