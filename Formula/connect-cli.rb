@@ -10,7 +10,7 @@ class ConnectCli < Formula
   head "https://github.com/cloudblue/connect-cli.git"
 
 
-  depends_on "python@3.8"
+  depends_on "python@3"
   depends_on "cairo"
   depends_on "pango"
   depends_on "gdk-pixbuf"
