@@ -247,9 +247,6 @@ class ConnectCli < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec)
-    venv.pip_install resources
-    venv.pip_install 
     virtualenv_install_with_resources
   end
 
