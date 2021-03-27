@@ -118,7 +118,7 @@ class ConnectCli < Formula
 
   resource "interrogatio" do
     url "https://github.com/cloudblue/homebrew-connect-cli/raw/main/resources/interrogatio-1.0.3.tar.gz"
-    sha256 "e5018bd43f6392d76a274d1158cc62890090cc439850e5a0eb22bfdd7906ade5"
+    sha256 "c49ef65b2a6f4f533cd0f5aea201e034d3d00699caf72102ce31fb9916387072"
   end
 
   resource "iso3166" do
