@@ -117,7 +117,7 @@ class ConnectCli < Formula
   end
 
   resource "interrogatio" do
-    url "https://files.pythonhosted.org/packages/0f/04/f4b92359802cac37ae62d43e0d4119a8f3ef85cefb5a66f18e3d97f24a48/interrogatio-1.0.3.tar.gz"
+    url "https://github.com/cloudblue/homebrew-connect-cli/raw/main/resources/interrogatio-1.0.3.tar.gz"
     sha256 "c49ef65b2a6f4f533cd0f5aea201e034d3d00699caf72102ce31fb9916387072"
   end
 
