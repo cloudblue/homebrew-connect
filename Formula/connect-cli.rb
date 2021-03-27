@@ -118,7 +118,7 @@ class ConnectCli < Formula
 
   resource "interrogatio" do
     url "https://files.pythonhosted.org/packages/0f/04/f4b92359802cac37ae62d43e0d4119a8f3ef85cefb5a66f18e3d97f24a48/interrogatio-1.0.3.tar.gz"
-    sha256 "e4533cc4ea2498a6d4ac55326b2a05682394d61ee4ca44fc090fffb32e3ce1a9"
+    sha256 "c49ef65b2a6f4f533cd0f5aea201e034d3d00699caf72102ce31fb9916387072"
   end
 
   resource "iso3166" do
