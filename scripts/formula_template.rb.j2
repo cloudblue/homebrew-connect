@@ -1,4 +1,4 @@
-class ConnectCliAT{{ root_version }} < Formula
+class ConnectCli < Formula
   include Language::Python::Virtualenv
 
   desc "CloudBlue Connect Command Line Interface"
@@ -6,7 +6,7 @@ class ConnectCliAT{{ root_version }} < Formula
   url "{{ root_url }}"
   sha256 "{{ root_digest }}"
   license "Apache-2.0"
-  revision 1
+  version "{{ root_version }}"
   head "https://github.com/cloudblue/connect-cli.git"
 
 
