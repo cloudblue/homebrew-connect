@@ -35,5 +35,5 @@ jobs:
         commit_message: Automated Change
         branch: master
         commit_options: '--no-verify --signoff'
-        file_pattern: Formula/*.rb, digest.txt
+        file_pattern: Formula/*.rb digest.txt
         repository: .
