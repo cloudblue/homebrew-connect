@@ -23,7 +23,7 @@ def generate():
         f.write(cli_info['checksum'])
 
     env = Environment(
-        loader=FileSystemLoader(searchpath='./scripts'),
+        loader=FileSystemLoader(searchpath='./gen_resources'),
         trim_blocks=True,
     )
     
