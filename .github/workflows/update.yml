@@ -1,10 +1,11 @@
+name: Update Homebrew TAP
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 10 * * *'
 
 jobs:
   build:
@@ -34,5 +35,5 @@ jobs:
         commit_message: Automated Change
         branch: master
         commit_options: '--no-verify --signoff'
-        file_pattern: Formula/*.rb
+        file_pattern: Formula/*.rb, digest.txt
         repository: .
