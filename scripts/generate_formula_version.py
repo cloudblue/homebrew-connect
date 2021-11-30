@@ -26,6 +26,7 @@ def generate():
     template = env.get_template('formula_template.rb.j2')
     formula = template.render(
         root_url=cli_info['url'],
+        root_version=cli_info['version'].replace('.', ''),
         root_digest=cli_info['checksum'],
         resources=resources,
     )
