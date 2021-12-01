@@ -1,2 +1,2 @@
 connect-cli
-homebrew-pypi-poet
+homebrew-pypi-poet==0.10.0
