@@ -3,10 +3,10 @@ class ConnectCli < Formula
 
   desc "CloudBlue Connect Command Line Interface"
   homepage "https://connect.cloudblue.com"
-  url "https://files.pythonhosted.org/packages/b3/43/9f75e4769de7d42e4115e24b8d01a33c698b7f6f85b892f303eea8ad3453/connect-cli-24.6.tar.gz"
-  sha256 "63ab2e7a6df7c14bba5d572fe18aeffc107800c2efe779657b257450e01ca0cc"
+  url "https://files.pythonhosted.org/packages/61/86/bcf2ed37f5a64cf5b9b041c58cda4e8b133fd715b9d4abf750e4b786d5e3/connect-cli-24.9.tar.gz"
+  sha256 "7820d1d44b904aa0f1ee91bde0d51f8ca5afb08bc61e7468c238508a0567785b"
   license "Apache-2.0"
-  version "24.6"
+  version "24.9"
   head "https://github.com/cloudblue/connect-cli.git"
 
 
@@ -62,7 +62,7 @@ class ConnectCli < Formula
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "et-xmlfile==1.1.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "fonttools==4.28.4"
+                            "--ignore-installed", "fonttools==4.28.5"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "fs==2.4.14"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -104,7 +104,7 @@ class ConnectCli < Formula
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "Pillow==8.4.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "plotly==5.4.0"
+                            "--ignore-installed", "plotly==5.5.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "poyo==0.5.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
