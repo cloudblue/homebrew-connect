@@ -3,10 +3,10 @@ class ConnectCli < Formula
 
   desc "CloudBlue Connect Command Line Interface"
   homepage "https://connect.cloudblue.com"
-  url "https://files.pythonhosted.org/packages/3c/fa/7106be35b07074050588d585438f0fc319f56606c9043edfb9f89b615061/connect-cli-24.11.tar.gz"
-  sha256 "de1f211c97a3e0c68770fe09568be6fec713419730f9baee74525a9cfee9534f"
+  url "https://files.pythonhosted.org/packages/b0/19/89f2896d960adea15d563223c68155d6f515280ba445f17e4aa15ee33ec8/connect-cli-24.12.tar.gz"
+  sha256 "a73cc402cdf92ae2f426d9036a08e8f57b06e4b97cc2bd4c58e39ee22f2fa9bc"
   license "Apache-2.0"
-  version "24.11"
+  version "24.12"
   head "https://github.com/cloudblue/connect-cli.git"
 
 
@@ -26,9 +26,9 @@ class ConnectCli < Formula
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "appdirs==1.4.4"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "arrow==1.2.1"
+                            "--ignore-installed", "arrow==1.2.2"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "asgiref==3.4.1"
+                            "--ignore-installed", "asgiref==3.5.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "attrs==21.4.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -44,13 +44,13 @@ class ConnectCli < Formula
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "chardet==4.0.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "charset-normalizer==2.0.10"
+                            "--ignore-installed", "charset-normalizer==2.0.11"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "click==7.1.2"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "connect-markdown-renderer==1.0.1"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "connect-openapi-client==24.1"
+                            "--ignore-installed", "connect-openapi-client==24.2"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "connect-reports-core==24.0.3"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -62,9 +62,9 @@ class ConnectCli < Formula
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "et-xmlfile==1.1.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "fonttools==4.28.5"
+                            "--ignore-installed", "fonttools==4.29.1"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "fs==2.4.14"
+                            "--ignore-installed", "fs==2.4.15"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "h11==0.12.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -76,7 +76,7 @@ class ConnectCli < Formula
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "idna==3.3"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "inflect==5.3.0"
+                            "--ignore-installed", "inflect==5.4.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "interrogatio==2.1.2"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -98,17 +98,17 @@ class ConnectCli < Formula
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "openpyxl==3.0.9"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "orjson==3.6.5"
+                            "--ignore-installed", "orjson==3.6.6"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "phonenumbers==8.12.41"
+                            "--ignore-installed", "phonenumbers==8.12.42"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "Pillow==9.0.0"
+                            "--ignore-installed", "Pillow==9.0.1"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "plotly==5.5.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "poyo==0.5.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "prompt-toolkit==3.0.24"
+                            "--ignore-installed", "prompt-toolkit==3.0.27"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "pycparser==2.21"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -118,7 +118,7 @@ class ConnectCli < Formula
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "pyphen==0.12.0"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "pyrsistent==0.18.0"
+                            "--ignore-installed", "pyrsistent==0.18.1"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "python-dateutil==2.8.2"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
