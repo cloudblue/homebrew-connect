@@ -3,10 +3,10 @@ class ConnectCli < Formula
 
   desc "CloudBlue Connect Command Line Interface"
   homepage "https://connect.cloudblue.com"
-  url "https://files.pythonhosted.org/packages/41/9b/ae7484c9d202978fe4a8dced833440f12c7d042a0b1a78891622ab127d04/connect-cli-24.13.tar.gz"
-  sha256 "96849e7d4d7be4d072a32bbfc75ed991e0819d4e006069df9417ba110d838069"
+  url "https://files.pythonhosted.org/packages/2f/0e/6d531d96253c958d405758d370e9ffe0d808367a3db30af47770e1f13653/connect-cli-24.24.tar.gz"
+  sha256 "f5c953597dd29d74a8feafe911623c685c9ef965b3bd13b08976ea5efe5c23f9"
   license "Apache-2.0"
-  version "24.13"
+  version "24.24"
   head "https://github.com/cloudblue/connect-cli.git"
 
 
@@ -50,7 +50,7 @@ class ConnectCli < Formula
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "connect-markdown-renderer==1.0.1"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "connect-openapi-client==24.3"
+                            "--ignore-installed", "connect-openapi-client==24.4"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "connect-reports-core==24.0.3"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -164,7 +164,7 @@ class ConnectCli < Formula
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "webencodings==0.5.1"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "zopfli==0.2.0"
+                            "--ignore-installed", "zopfli==0.2.1"
 
 
     venv.pip_install_and_link buildpath
