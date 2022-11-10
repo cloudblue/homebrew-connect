@@ -3,10 +3,10 @@ class ConnectCli < Formula
 
   desc "CloudBlue Connect Command Line Interface"
   homepage "https://connect.cloudblue.com"
-  url "https://files.pythonhosted.org/packages/e7/2f/905e2a39a1fe4c11108047642845595ff3c1e6d8de91297edc6a3f4a406b/connect_cli-26.7.tar.gz"
-  sha256 "4cc0262f62573537a97f2c0fb63bc32923156f1e2a54db10cd9ea762822df50c"
+  url "https://files.pythonhosted.org/packages/75/bb/b6508239353f9d43d57f8ce5cb2e251c03b70ec8d3a970bd72f2a7ba55eb/connect_cli-26.8.tar.gz"
+  sha256 "528428f6db5c046fe338b970e8f9175a36be93be608cffaae136cb8d2abaaa2d"
   license "Apache-2.0"
-  version "26.7"
+  version "26.8"
   head "https://github.com/cloudblue/connect-cli.git"
 
 
@@ -23,6 +23,8 @@ class ConnectCli < Formula
                             "--ignore-installed", "anvil-uplink==0.4.1"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "anyio==3.6.2"
+  system libexec/"bin/pip", "install", "-v", "--no-deps",
+                            "--ignore-installed", "appdirs==1.4.4"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "arrow==1.2.3"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -65,6 +67,8 @@ class ConnectCli < Formula
                             "--ignore-installed", "fastapi-utils==0.2.1"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "fonttools==4.38.0"
+  system libexec/"bin/pip", "install", "-v", "--no-deps",
+                            "--ignore-installed", "fs==2.4.16"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
                             "--ignore-installed", "future==0.18.2"
   system libexec/"bin/pip", "install", "-v", "--no-deps",
