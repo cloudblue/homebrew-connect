@@ -20,12 +20,13 @@ class ConnectCli < Formula
     venv = virtualenv_create(libexec, "python3")
 
 {% for resource in resources %}
-  system libexec/"bin/pip", "install", "-v", "--no-deps",
-                            "--ignore-installed", "{{ resource.name }}=={{ resource.version }}"
+    system libexec/"bin/pip", "install", "-v", "--no-deps",
+                              "--ignore-installed", "{{ resource.name }}=={{ resource.version }}"
 {% endfor %}
-
-
-    venv.pip_install_and_link buildpath
+    system libexec/"bin/pip", "install", "-v", "--no-deps",
+                              "--ignore-installed", "--no-binary",
+                              ":all", buildpath
+    bin.install_symlink libexec/"bin/ccli"
   end
 
   test do
