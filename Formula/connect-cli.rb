@@ -3,10 +3,10 @@ class ConnectCli < Formula
 
   desc "CloudBlue Connect Command Line Interface"
   homepage "https://connect.cloudblue.com"
-  url "https://files.pythonhosted.org/packages/a5/23/eda39a0316c8ea98b6ba318b90bbdd2a1dbe2e8dcc74e1d39ca40f97a101/connect_cli-26.13.tar.gz"
-  sha256 "e0dc9699c4fdd5a7645ba32540bece2dfba4cd4a9499ce2f6b9bb868ce61fc60"
+  url "https://files.pythonhosted.org/packages/31/1d/00d6403ebec71c6620c342be908437334a9a765aeceafcd327dc3eec025f/connect_cli-26.14.tar.gz"
+  sha256 "acb894cd87c5d59b0d8698e4f97ec8bfc174465c1353f4da06c4223d135791e9"
   license "Apache-2.0"
-  version "26.13"
+  version "26.14"
   head "https://github.com/cloudblue/connect-cli.git"
 
 
@@ -46,11 +46,11 @@ class ConnectCli < Formula
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "commonmark==0.9.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "connect-eaas-core==26.16"
+                              "--ignore-installed", "connect-eaas-core==26.17"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "connect-markdown-renderer==2.0.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "connect-openapi-client==25.18"
+                              "--ignore-installed", "connect-openapi-client==25.19"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "connect-reports-core==26.0.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
