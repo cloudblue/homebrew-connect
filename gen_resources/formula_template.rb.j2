@@ -17,7 +17,7 @@ class ConnectCli < Formula
   depends_on "libffi"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3", without_pip: false)
 
 {% for resource in resources %}
     system libexec/"bin/pip", "install", "-v", "--no-deps",
