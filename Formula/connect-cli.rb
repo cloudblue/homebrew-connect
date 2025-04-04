@@ -17,12 +17,12 @@ class ConnectCli < Formula
   depends_on "libffi"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3", without_pip: false)
 
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "anvil-uplink==0.4.2"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "anyio==4.3.0"
+                              "--ignore-installed", "anyio==4.5.2"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "appdirs==1.4.4"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -30,19 +30,19 @@ class ConnectCli < Formula
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "asgiref==3.8.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "attrs==23.2.0"
+                              "--ignore-installed", "attrs==25.3.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "backports.zoneinfo==0.2.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "Brotli==1.1.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "certifi==2024.2.2"
+                              "--ignore-installed", "certifi==2025.1.31"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "cffi==1.16.0"
+                              "--ignore-installed", "cffi==1.17.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "charset-normalizer==3.3.2"
+                              "--ignore-installed", "charset-normalizer==3.4.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "click==8.1.7"
+                              "--ignore-installed", "click==8.1.8"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "commonmark==0.9.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -56,23 +56,23 @@ class ConnectCli < Formula
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "cssselect2==0.7.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "decorator==5.1.1"
+                              "--ignore-installed", "decorator==5.2.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "et-xmlfile==1.1.0"
+                              "--ignore-installed", "et-xmlfile==2.0.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "exceptiongroup==1.2.0"
+                              "--ignore-installed", "exceptiongroup==1.2.2"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "fastapi==0.95.2"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "fastapi-utils==0.2.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "fonttools==4.51.0"
+                              "--ignore-installed", "fonttools==4.57.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "fs==2.4.16"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "future==1.0.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "greenlet==3.0.3"
+                              "--ignore-installed", "greenlet==3.1.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "h11==0.14.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -82,19 +82,19 @@ class ConnectCli < Formula
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "httpx==0.24.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "idna==3.7"
+                              "--ignore-installed", "idna==3.10"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "importlib-metadata==6.11.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "inflect==7.0.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "iniconfig==2.0.0"
+                              "--ignore-installed", "iniconfig==2.1.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "interrogatio==2.3.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "iso3166==1.0.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "Jinja2==3.1.3"
+                              "--ignore-installed", "Jinja2==3.1.6"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "jinja2-time==0.2.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -104,7 +104,7 @@ class ConnectCli < Formula
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "logzio-python-handler==3.1.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "lxml==5.2.1"
+                              "--ignore-installed", "lxml==5.3.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "markdown-it-py==2.2.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -112,33 +112,33 @@ class ConnectCli < Formula
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "mdurl==0.1.2"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "openpyxl==3.1.2"
+                              "--ignore-installed", "openpyxl==3.1.5"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "orjson==3.10.1"
+                              "--ignore-installed", "orjson==3.10.15"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "packaging==24.0"
+                              "--ignore-installed", "packaging==24.2"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "phonenumbers==8.13.34"
+                              "--ignore-installed", "phonenumbers==8.13.55"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "pillow==10.3.0"
+                              "--ignore-installed", "pillow==10.4.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "plotly==5.20.0"
+                              "--ignore-installed", "plotly==5.24.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "pluggy==1.4.0"
+                              "--ignore-installed", "pluggy==1.5.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "poetry-core==1.9.0"
+                              "--ignore-installed", "poetry-core==1.9.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "prompt-toolkit==3.0.43"
+                              "--ignore-installed", "prompt-toolkit==3.0.50"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "pycparser==2.22"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "pydantic==1.10.15"
+                              "--ignore-installed", "pydantic==1.10.21"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "pydyf==0.9.0"
+                              "--ignore-installed", "pydyf==0.11.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "Pygments==2.17.2"
+                              "--ignore-installed", "Pygments==2.19.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "pyphen==0.14.0"
+                              "--ignore-installed", "pyphen==0.16.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "pyrsistent==0.20.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -152,39 +152,39 @@ class ConnectCli < Formula
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "pytz-deprecation-shim==0.1.0.post0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "PyYAML==6.0.1"
+                              "--ignore-installed", "PyYAML==6.0.2"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "requests==2.31.0"
+                              "--ignore-installed", "requests==2.32.3"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "responses==0.25.0"
+                              "--ignore-installed", "responses==0.25.7"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "rich==12.6.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "six==1.16.0"
+                              "--ignore-installed", "six==1.17.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "sniffio==1.3.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "SQLAlchemy==1.4.52"
+                              "--ignore-installed", "SQLAlchemy==1.4.54"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "starlette==0.27.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "tenacity==8.2.3"
+                              "--ignore-installed", "tenacity==9.0.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "tinycss2==1.2.1"
+                              "--ignore-installed", "tinycss2==1.4.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "toml==0.10.2"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "tomli==2.0.1"
+                              "--ignore-installed", "tomli==2.2.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "types-python-dateutil==2.9.0.20240316"
+                              "--ignore-installed", "types-python-dateutil==2.9.0.20241206"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "typing-extensions==4.5.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "tzdata==2024.1"
+                              "--ignore-installed", "tzdata==2025.2"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "tzlocal==4.3.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "urllib3==1.26.18"
+                              "--ignore-installed", "urllib3==1.26.20"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "uvloop==0.16.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
@@ -196,11 +196,11 @@ class ConnectCli < Formula
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "webencodings==0.5.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "ws4py==0.5.1"
+                              "--ignore-installed", "ws4py==0.6.0"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "zipp==3.18.1"
+                              "--ignore-installed", "zipp==3.20.2"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "zopfli==0.2.3"
+                              "--ignore-installed", "zopfli==0.2.3.post1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "--no-binary",
                               ":all", buildpath
