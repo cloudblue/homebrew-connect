@@ -3,10 +3,10 @@ class ConnectCli < Formula
 
   desc "CloudBlue Connect Command Line Interface"
   homepage "https://connect.cloudblue.com"
-  url "https://files.pythonhosted.org/packages/2c/88/362b6d3b3d6ecf97949f269fe1f453f940e4a9b6bd0ffdc304d001cd1add/connect_cli-40.4.tar.gz"
-  sha256 "0e61bea735751014ebdf2952296841f86f3eaf0c3c49ef3bd827ac6c52dd2311"
+  url "https://files.pythonhosted.org/packages/a6/97/2cb936cf4e4ec037f63737ca0d801e6aef086fe4f842db3de5f30010fa9b/connect_cli-40.5.tar.gz"
+  sha256 "99b0f59267901a573b7c9ab3f51edb4000b39c226a78836a2d5d24cffdf328bb"
   license "Apache-2.0"
-  version "40.4"
+  version "40.5"
   head "https://github.com/cloudblue/connect-cli.git"
 
 
@@ -134,7 +134,7 @@ class ConnectCli < Formula
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "pycparser==2.23"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
-                              "--ignore-installed", "pydantic==1.10.24"
+                              "--ignore-installed", "pydantic==1.10.26"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "pydyf==0.12.1"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
