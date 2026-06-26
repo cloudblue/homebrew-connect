@@ -19,6 +19,12 @@ class ConnectCli < Formula
   def install
     venv = virtualenv_create(libexec, "python3", without_pip: false)
 
+    # homebrew-pypi-poet drops setuptools from the graph and Homebrew venvs no
+    # longer ship it, but runtime deps (interrogatio) import the legacy
+    # pkg_resources API removed in setuptools 81. Install it explicitly.
+    system libexec/"bin/pip", "install", "-v",
+                              "--ignore-installed", "setuptools<81"
+
     system libexec/"bin/pip", "install", "-v", "--no-deps",
                               "--ignore-installed", "anvil-uplink==0.5.2"
     system libexec/"bin/pip", "install", "-v", "--no-deps",
