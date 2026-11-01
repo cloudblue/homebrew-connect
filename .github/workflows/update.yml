@@ -44,7 +44,8 @@ jobs:
     - name: Read formula version
       id: formula
       run: |
-        version="$(sed -n 's/^  version "\(.*\)"$/\1/p' Formula/connect-cli.rb)"
+        # The formula has no version line: Homebrew reads the version from the sdist URL.
+        version="$(sed -n 's|^  url ".*/connect_cli-\(.*\)\.tar\.gz"$|\1|p' Formula/connect-cli.rb)"
         test -n "$version"
         echo "version=$version" >> "$GITHUB_OUTPUT"
     # The App token is minted last so that it does not exist while pip installs

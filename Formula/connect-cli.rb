@@ -6,7 +6,6 @@ class ConnectCli < Formula
   url "https://files.pythonhosted.org/packages/1c/a7/85f02214a01872e9b80830057861ad0d6db9332ba03b7098706771816928/connect_cli-41.0.tar.gz"
   sha256 "db024c99557898c5a5f2bdbca61a6222a6effe60f8a35f43f53d378f5c33bcd1"
   license "Apache-2.0"
-  version "41.0"
   head "https://github.com/cloudblue/connect-cli.git"
 
 
