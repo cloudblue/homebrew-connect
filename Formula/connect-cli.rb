@@ -220,6 +220,7 @@ class ConnectCli < Formula
   end
 
   test do
-    assert_include "CloudBlue Connect Command Line Interface", shell_output("#{bin}/ccli").strip
+    assert_match "CloudBlue Connect Command Line Interface", shell_output("#{bin}/ccli").strip
+    assert_match "version #{version}", shell_output("#{bin}/ccli --version") unless head?
   end
 end
