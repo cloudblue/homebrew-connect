@@ -1,10 +1,9 @@
 name: Test formula
 
 on:
+  # Every pull request, without a paths filter: if these checks become required, a
+  # filter would leave README or update.yml PRs waiting for a check that never runs.
   pull_request:
-    paths:
-      - 'Formula/**'
-      - '.github/workflows/test.yml'
   schedule:
     # Weekly, to notice when Homebrew, a dependency or PyPI breaks the formula
     # even though nobody changed it.
