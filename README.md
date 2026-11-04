@@ -108,6 +108,11 @@ need a working connection to `pypi.org` and `files.pythonhosted.org`. Compiler
 errors usually mean outdated build tools: update the Command Line Tools on macOS
 or run `brew doctor`.
 
+**The install takes several minutes**<br>
+The formula builds orjson and pydantic-core from source with Rust, because
+Homebrew can't relink the pre-built macOS wheels from PyPI. Homebrew installs
+Rust for the build.
+
 **The install is very slow on an Intel Mac**<br>
 At the time of writing Homebrew publishes no pre-built packages ("bottles") for
 Intel Macs for Python, Cairo or Pango, so Homebrew compiles them. CI does not
@@ -132,8 +137,8 @@ Nobody edits the formula by hand for a normal release.
    and creates the GitHub release.
 2. The last step of that workflow starts `Update Homebrew TAP`
    (`.github/workflows/update.yml`) in this repository with `sleep=300`, which
-   gives PyPI time to serve the new files. The same workflow also runs every day
-   at 10:00 UTC in case that trigger was missed.
+   gives PyPI time to serve the new files. If that trigger was missed, start
+   `Update Homebrew TAP` by hand from the Actions tab.
 3. `Update Homebrew TAP` installs the newest `connect-cli` from PyPI, regenerates
    `Formula/connect-cli.rb` from `gen_resources/formula_template.rb.j2` with
    [homebrew-pypi-poet](https://github.com/tdsmith/homebrew-pypi-poet), and opens
@@ -142,11 +147,14 @@ Nobody edits the formula by hand for a normal release.
    formula, nothing happens.
 4. `Test formula` (`.github/workflows/test.yml`) runs on that pull request, on
    macOS and Ubuntu: `brew audit`, `brew install --build-from-source`,
-   `brew test` and `ccli --version`. It also runs every Monday and on demand, to
-   catch a formula that breaks while nobody touches it.
+   `brew test` and `ccli --version`. It can also be started by hand from the
+   Actions tab.
 5. A reviewer merges the pull request once the checks are green. Users get the
    version with `brew update && brew upgrade`. If a newer release arrives before
-   that, close the older pull request and delete its branch.
+   that, close the older pull request and delete its branch. If the formula
+   needs a fix, change the template or the generator in a separate pull request
+   against `master`: `Update Homebrew TAP` resets the `formula/connect-cli-<version>`
+   branch every time it runs, so commits pushed to that branch are lost.
 
 The pull requests are opened, and `Update Homebrew TAP` is started from
 connect-cli, with short-lived tokens of the organization's release GitHub App
