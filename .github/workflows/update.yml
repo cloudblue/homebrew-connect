@@ -1,9 +1,5 @@
 name: Update Homebrew TAP
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
   schedule:
     - cron: '0 10 * * *'
   workflow_dispatch:
@@ -13,6 +9,9 @@ on:
         required: true
         default: '1'
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,18 +19,21 @@ jobs:
       matrix:
         python-version: ["3.10"]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         fetch-depth: 0
         submodules: true
+        persist-credentials: false
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
       with:
         python-version: ${{ matrix.python-version }}
     - name: "Wait for pypi to update mirrors"
       if: ${{ github.event_name == 'workflow_dispatch' }}
+      env:
+        SLEEP_SECONDS: ${{ inputs.sleep }}
       run: |
-        sleep ${{ github.event.inputs.sleep }}
+        sleep "$SLEEP_SECONDS"
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -39,11 +41,42 @@ jobs:
     - name: Generate formula
       run: |
         python gen_resources/generate_formula_version.py
-    - name: Autocommit new release
-      uses: stefanzweifel/git-auto-commit-action@v4
+    - name: Read formula version
+      id: formula
+      run: |
+        # The formula has no version line: Homebrew reads the version from the sdist URL.
+        version="$(sed -n 's|^  url ".*/connect_cli-\(.*\)\.tar\.gz"$|\1|p' Formula/connect-cli.rb)"
+        test -n "$version"
+        echo "version=$version" >> "$GITHUB_OUTPUT"
+    # The App token is minted last so that it does not exist while pip installs
+    # packages. RELEASE_APP_ID may hold the App ID or the Client ID.
+    - name: Create GitHub App token
+      id: app-token
+      uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
       with:
-        commit_message: Automated Change
-        branch: master
-        commit_options: '--no-verify --signoff'
-        file_pattern: Formula/*.rb digest.txt
-        repository: .
+        client-id: ${{ vars.RELEASE_APP_ID }}
+        private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+        permission-contents: write
+        permission-pull-requests: write
+    - name: Open pull request
+      uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+      with:
+        token: ${{ steps.app-token.outputs.token }}
+        add-paths: |
+          Formula/*.rb
+          digest.txt
+        branch: formula/connect-cli-${{ steps.formula.outputs.version }}
+        delete-branch: true
+        commit-message: Update connect-cli to ${{ steps.formula.outputs.version }}
+        author: 'github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>'
+        signoff: true
+        title: Update connect-cli to ${{ steps.formula.outputs.version }}
+        body: |
+          Regenerates `Formula/connect-cli.rb` for connect-cli ${{ steps.formula.outputs.version }}.
+
+          - [Release](https://github.com/cloudblue/connect-cli/releases/tag/${{ steps.formula.outputs.version }})
+          - [PyPI](https://pypi.org/project/connect-cli/${{ steps.formula.outputs.version }}/)
+          - [Workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}), started by `${{ github.event_name }}`
+
+          `Test formula` runs on this pull request: audit, build from source and `brew test` on macOS and Ubuntu. Merge it once it is green; users then get the new version with `brew upgrade`.
+        reviewers: pcaro,arnaugiralt
