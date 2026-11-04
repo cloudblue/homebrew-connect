@@ -14,9 +14,15 @@ class ConnectCli < Formula
   depends_on "pango"
   depends_on "gdk-pixbuf"
   depends_on "libffi"
+  depends_on "rust" => :build
 
   def install
-    venv = virtualenv_create(libexec, "python3", without_pip: false)
+    # PyPI's macOS wheels for these Rust extensions leave no room in the Mach-O
+    # header, so Homebrew can't rewrite their dylib IDs. Build them here.
+    ENV["PIP_NO_BINARY"] = "orjson,pydantic-core"
+    # "python3" can resolve to a newer Python pulled in by a dependency (glib
+    # brings python@3.15 on Linux), and without_pip fails from 3.12 on.
+    venv = virtualenv_create(libexec, "python3.10", without_pip: false)
 
     # homebrew-pypi-poet drops setuptools from the graph and Homebrew venvs no
     # longer ship it, but runtime deps (interrogatio) import the legacy
