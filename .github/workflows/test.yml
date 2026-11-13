@@ -1,0 +1,58 @@
+name: Test formula
+
+on:
+  # Every pull request, without a paths filter: if these checks become required, a
+  # filter would leave README or update.yml PRs waiting for a check that never runs.
+  pull_request:
+  schedule:
+    # Weekly, to notice when Homebrew, a dependency or PyPI breaks the formula
+    # even though nobody changed it.
+    - cron: '17 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  FORMULA: cloudblue/connect/connect-cli
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      # No actions/checkout: setup-homebrew checks this repository out at
+      # GITHUB_SHA and links it into Homebrew as the cloudblue/connect tap.
+      # `stable` runs the Homebrew release that users have, not its main branch.
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1
+        with:
+          stable: true
+
+      - name: Audit formula
+        run: brew audit --formula "$FORMULA"
+
+      # The steps below still run when the audit fails, so one run shows every
+      # problem. Test and version need an installed formula.
+      - name: Install formula from source
+        id: install
+        if: ${{ !cancelled() }}
+        run: brew install --build-from-source "$FORMULA"
+
+      - name: Test formula
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: brew test "$FORMULA"
+
+      - name: Print ccli version
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        timeout-minutes: 5
+        run: ccli --version
